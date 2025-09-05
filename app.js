@@ -29,6 +29,8 @@ app.use(cors({
   origin: "http://localhost:5173"   // only allow React frontend
 }));
 
+app.use(cors());
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -51,3 +53,7 @@ app.use('/auth',verifyToken,authorizeRoles(Roles.Admin),Adminroute)
 app.get('/test',(req,res)=>{
     res.json({message:"connected succesfuly to server"})
 })
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
