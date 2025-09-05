@@ -25,9 +25,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(logger)
 // Middleware
-app.use(cors({
-  origin: "http://localhost:5173"   // only allow React frontend
-}));
+//app.use(cors({
+ // origin: "http://localhost:5173"   // only allow React frontend/
+//}));
 
 app.use(cors());
 
