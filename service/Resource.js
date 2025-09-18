@@ -1,35 +1,9 @@
 const QuestionPaper = require('../models/QuestionPaper')
 const Notes = require('../models/Notes')
+const GoogleUser = require("../models/GoogleUser")
+const User = require("../models/User")
+const { getuserdata } = require('../service/Account')
 
-
-// export const searchkey = async (keyword) => {
-//     try {
-//         const qkey = await QuestionPaper.findOne({ Sub_name: keyword })
-//         const Nkey = await Notes.findOne({ Sub_name: keyword })
-//     } catch (error) {
-
-//     }
-// }
-
-// export const MuiltyUploadQe = async (data, semdate, cname) => {
-//     try {
-//         for (let i = 0; i <= data.length; i++) {
-//             const newQuestionpaper = new QuestionPaper({
-//                 Sub_name: data[i].Sub_name,
-//                 Sub_code: data[i].sun_code,
-//                 Sem_month_year: semdate,
-//                 Issu_date: new Date(),
-//                 College_name: cname,
-//                 File_name: data[i].File_name,
-//                 File_Path: data[i].File_path
-//             })
-//             await newQuestionpaper.save()
-//         }
-//     return {message:'successfuly add data'}
-//     } catch (error) {
-//         throw new Error(error)
-//     }
-// }
 
  const NotesUpload = async(data) =>{
     try {
@@ -101,7 +75,14 @@ const getallresourcesdata=async()=>{
    }
 }
 
-//users
+const getUserEnroledCourses=async(userId)=>{
+    try {
+        const googleuser = await GoogleUser.findOne({ _id: id })
+        const emailuser = await User.findOne({ _id: id })
+    } catch (error) {
+        throw new Error(error)
+    }
+}
 
 
 
