@@ -3,22 +3,6 @@ const { Update, Delete, Read } = require("../service/AWS")
 const { MuiltyUploadQe, NotesUpload, QuestionUpload, DeleteData ,Search, getallresourcesdata } = require("../service/Resource")
 
 
-// const Upload=async(req,res,next)=>{
-//     try {
-//         const data=req?.body()
-
-//         if(data.length>=0){
-//             const added=await MuiltyUploadQe(data.data,data.sem_date,data.Cname)
-//             res.json(added)
-//         }
-//         else {
-//            console.log('its object')
-//         }
-//     } catch (error) {
-//         res.json({message:'Server error',error})
-//     }
-// }
-
 const Upload = async (req, res) => {
     try {
         const {sem_month_year, collegename, filename, filecode, type, degree ,field} = req.params
@@ -101,6 +85,14 @@ const GetAllResourcesdata=async(req,res)=>{
         res.status(200).json(data)
     } catch (error) {
         res.status(403).json({message:error.message})
+    }
+}
+
+const GetEnroledCourses=async(req,res)=>{
+    try {
+        
+    } catch (error) {
+        
     }
 }
 

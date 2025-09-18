@@ -4,7 +4,6 @@ const getuserdetails=async(req,res,next)=>{
     try {
         const {id,role}=req.user
         const data=await Accountservice.getuserdata(id)
-        console.log(data)
         if( data.length==0){
           return res.status(404).json({message:"user data is not Found"})
         }

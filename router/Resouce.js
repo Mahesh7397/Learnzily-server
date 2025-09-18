@@ -7,5 +7,7 @@ Router.route('/search').get((req,res)=>SearchList(req,res))
 
 Router.route('/resouce-url').get((req,res)=>Geturlaws(req,res))
 
+Router.route("/enroled-courses").get((req,res)=>{})
+
 
 module.exports = Router

@@ -11,6 +11,7 @@ const resourceroute=require('./router/Resouce')
 const signuproute=require('./router/Signup')
 const Accountrouter=require('./router/Account');
 const Adminroute=require('./router/Admin')
+const collegroute=require('./router/College')
 
 const { logger } = require("./middleware/Handlelogs");
 const { verifyToken } = require("./config/Auth");
@@ -41,11 +42,10 @@ app.use('/api',loginroute,signuproute)
 
 
 //user routes
-
 app.use('/api',verifyToken,resourceroute,Accountrouter)
 
 //admin routes
-app.use('/auth',verifyToken,authorizeRoles(Roles.Admin),Adminroute)
+app.use('/auth',verifyToken,authorizeRoles(Roles.Admin),Adminroute,collegroute)
 
 
 
